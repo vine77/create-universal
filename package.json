@@ -4,5 +4,8 @@
   "description": "Cross-platform Expo project generator",
   "main": "index.js",
   "author": "Nathan Ward",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.2.2"
+  }
 }
