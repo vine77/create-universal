@@ -2,9 +2,13 @@
   "name": "create-universal",
   "version": "0.0.1",
   "description": "Cross-platform Expo project generator",
-  "main": "index.js",
+  "type": "module",
+  "main": "dist/index.js",
   "author": "Nathan Ward",
   "license": "MIT",
+  "scripts": {
+    "build": "tsc"
+  },
   "devDependencies": {
     "typescript": "^5.2.2"
   },
