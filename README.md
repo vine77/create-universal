@@ -1,1 +1,3 @@
-# expo-generator
+# create-universal
+
+Cross-platform Expo project generator

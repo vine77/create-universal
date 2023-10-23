@@ -1,7 +1,7 @@
 {
-  "name": "expo-generator",
+  "name": "create-universal",
   "version": "0.0.1",
-  "description": "Expo project generator",
+  "description": "Cross-platform Expo project generator",
   "main": "index.js",
   "author": "Nathan Ward",
   "license": "MIT"
