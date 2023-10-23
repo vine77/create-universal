@@ -6,7 +6,11 @@
   "main": "dist/index.js",
   "author": "Nathan Ward",
   "license": "MIT",
+  "bin": {
+    "expo-generate": "./dist/index.js"
+  },
   "scripts": {
+    "start": "node dist/index.js",
     "build": "tsc",
     "lint": "eslint . --ignore-path .gitignore",
     "format": "eslint . --fix --ignore-path .gitignore"
