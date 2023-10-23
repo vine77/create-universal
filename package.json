@@ -16,6 +16,7 @@
     "format": "eslint . --fix --ignore-path .gitignore"
   },
   "devDependencies": {
+    "@types/node": "^20.8.7",
     "eslint": "^8.52.0",
     "eslint-config-universe": "^12.0.0",
     "prettier": "^3.0.3",
