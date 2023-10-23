@@ -1,10 +1,14 @@
+#!/usr/bin/env node
+
 import { Command } from '@commander-js/extra-typings'
 
-export default function main() {
+import project from './project.js'
+
+export default async function main() {
   const program = new Command()
 
   program.command('project <name>').action((name: string) => {
-    console.log(`Creating project: ${name}`)
+    project(name)
   })
 
   program
@@ -17,7 +21,7 @@ export default function main() {
       console.log(`Creating component: ${name} with args: ${argsString}`)
     })
 
-  program.parse(process.argv)
+  await program.parseAsync(process.argv)
 }
 
 main()
