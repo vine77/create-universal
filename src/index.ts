@@ -8,7 +8,7 @@ export default async function main() {
   const program = new Command()
 
   program.command('project <name>').action((name: string) => {
-    project(name)
+    project({ name })
   })
 
   program

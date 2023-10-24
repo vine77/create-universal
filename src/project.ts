@@ -1,13 +1,18 @@
-// `expo-generate project <project-name>
-// TODO:
-// 1. Create a directory with the name <project-name>
-// 2. expo init
-// 3. git init
+import {
+  ExecSyncOptionsWithStringEncoding,
+  execSync as nodeExecSync,
+} from 'child_process'
 
-import fs from 'fs'
+function execSync(
+  command: string,
+  options?: ExecSyncOptionsWithStringEncoding,
+) {
+  return nodeExecSync(command, { encoding: 'utf8', ...options })
+}
 
-export default function project(name: string) {
-  console.log(`Creating project: ${name}`)
-  fs.mkdirSync(name)
-  console.log(`Created directory: ${name}`)
+export default function project({ name }: { name: string }) {
+  console.log(`Creating project in ${name}...`)
+  execSync(`npm x --yes -- create-expo@latest --yes --template tabs ${name}`)
+  console.log(`Project created in ${name}! 🎉 Run:`)
+  console.log(`cd ${name} && npm start`)
 }
