@@ -9,7 +9,7 @@
   "bin": { "create-universal": "./dist/index.js" },
   "files": ["dist"],
   "scripts": {
-    "start": "node dist/index.js",
+    "start": "npm run build && node dist/index.js",
     "build": "tsc",
     "prepublishOnly": "npm run build",
     "lint": "eslint . --ignore-path .gitignore",
