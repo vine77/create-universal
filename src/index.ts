@@ -2,13 +2,13 @@
 
 import { Command } from '@commander-js/extra-typings'
 
-import project from './project.js'
+import app from './app.js'
 
 export default async function main() {
   const program = new Command()
 
-  program.command('project <name>').action((name: string) => {
-    project({ name })
+  program.command('app <name>').action((name: string) => {
+    app({ name })
   })
 
   program
