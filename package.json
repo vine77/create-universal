@@ -1,13 +1,18 @@
 {
   "name": "create-universal",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Cross-platform Expo project generator",
+  "homepage": "https://github.com/vine77/create-universal",
   "type": "module",
   "main": "dist/index.js",
   "author": "Nathan Ward",
   "license": "MIT",
-  "bin": { "create-universal": "./dist/index.js" },
-  "files": ["dist"],
+  "bin": {
+    "create-universal": "./dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "start": "npm run build && node dist/index.js",
     "build": "tsc",
