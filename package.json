@@ -1,17 +1,17 @@
 {
   "name": "create-universal",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Cross-platform Expo project generator",
   "type": "module",
   "main": "dist/index.js",
   "author": "Nathan Ward",
   "license": "MIT",
-  "bin": {
-    "expo-generate": "./dist/index.js"
-  },
+  "bin": { "create-universal": "./dist/index.js" },
+  "files": ["dist"],
   "scripts": {
     "start": "node dist/index.js",
     "build": "tsc",
+    "prepublishOnly": "npm run build",
     "lint": "eslint . --ignore-path .gitignore",
     "format": "eslint . --fix --ignore-path .gitignore"
   },
