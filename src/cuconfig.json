@@ -1,0 +1,24 @@
+{
+  "scripts": {
+    "start": "npm run web",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "test": "jest",
+    "lint": "eslint . --ignore-path .gitignore",
+    "format": "eslint . --fix --ignore-path .gitignore"
+  },
+  "dependencies": [
+    "@gluestack-style/react",
+    "@gluestack-ui/config",
+    "@gluestack-ui/themed",
+    "react-native-svg"
+  ],
+  "devDependencies": [
+    "@types/react-dom",
+    "eslint",
+    "eslint-config-universe",
+    "prettier",
+    "react-native-svg-transformer"
+  ]
+}
