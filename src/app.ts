@@ -37,8 +37,8 @@ function execSync(
   })
 }
 
-export default function project({ name }: { name: string }) {
-  log(`Creating project in ${name}...`)
+export default function app({ name }: { name: string }) {
+  log(`Creating universal app in ${name}...`)
 
   // Create new project with expo `tabs` template
   try {
@@ -54,9 +54,10 @@ export default function project({ name }: { name: string }) {
 
   log('Customizing base template...')
 
-  // Add `src` folder and remove extra folders from expo `tabs` template
+  // Remove extra folders from expo `tabs` template and add `src` folder
   try {
-    rmSync('./app', { recursive: true, force: true })
+    rmSync('./app/(tabs)', { recursive: true, force: true })
+    rmSync('./app/modal.tsx', { recursive: true, force: true })
     rmSync('./components', { recursive: true, force: true })
     rmSync('./constants', { recursive: true, force: true })
     mkdirSync('./src')
