@@ -4,7 +4,8 @@ import {
 } from 'child_process'
 import { cpSync, mkdirSync, renameSync, rmSync } from 'fs'
 import { dirname, resolve } from 'path'
-import { chdir, exit } from 'process'
+import { chdir, exit, stdin, stdout } from 'process'
+import { createInterface } from 'readline/promises'
 import { fileURLToPath } from 'url'
 
 import cuconfig from './cuconfig.json' assert { type: 'json' }
@@ -38,14 +39,29 @@ function execSync(
   return nodeExecSync(command, { stdio: 'inherit', ...options })
 }
 
-export default function app({ name }: { name: string }) {
-  log(`Creating universal app in ${name}...`)
+export default async function app({ name }: { name?: string } = {}) {
+  let appName = name
+
+  if (!name) {
+    const rl = createInterface({ input: stdin, output: stdout })
+    const answer = await rl.question(
+      'What is the name of your app (directory name)? ',
+    )
+    rl.close()
+    if (!answer) {
+      error('The app name cannot be empty.')
+      exit(1)
+    }
+    appName = answer
+  }
+
+  log(`Creating universal app in ${appName}...`)
 
   // Create new project with expo `tabs` template
   try {
-    execSync(`npm create -y expo -- -y --template tabs ${name}`)
+    execSync(`npm create -y expo -- -y --template tabs ${appName}`)
     // Change directory to new project for remaining steps
-    chdir(`./${name}`)
+    chdir(`./${appName}`)
   } catch {
     error('The project could not be created.')
     exit(1)
@@ -167,6 +183,6 @@ export default function app({ name }: { name: string }) {
     exit(1)
   }
 
-  console.log(`\n🎉 Project created in ${name}! Run:`)
-  console.log(`cd ${name} && npm start`)
+  console.log(`\n🎉 Project created in ${appName}! Run:`)
+  console.log(`cd ${appName} && npm start`)
 }

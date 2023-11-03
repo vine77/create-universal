@@ -8,6 +8,10 @@ export default async function main() {
 
   program.version(packageVersion, '-v, --version')
 
+  program.command('app').action(() => {
+    app()
+  })
+
   program.command('app <name>').action((name: string) => {
     app({ name })
   })

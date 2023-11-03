@@ -8,7 +8,7 @@
   "author": "Nathan Ward",
   "license": "MIT",
   "bin": {
-    "create-universal": "./dist/bin.js"
+    "create-universal": "dist/bin.js"
   },
   "files": [
     "dist"
