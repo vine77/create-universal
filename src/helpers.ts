@@ -5,7 +5,8 @@ import { resolve } from 'path'
 // @ts-ignore: Ignore that this is outside rootDir (since it'll exist in build)
 import packageJson from '../package.json' assert { type: 'json' }
 
-export const currentVersion = packageJson.version
+export const packageVersion = packageJson.version
+export const packageName = packageJson.name
 
 export function gitVersion() {
   try {
