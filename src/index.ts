@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 import { Command } from '@commander-js/extra-typings'
 
 import app from './app.js'
@@ -26,5 +24,3 @@ export default async function main() {
 
   await program.parseAsync(process.argv)
 }
-
-main()
