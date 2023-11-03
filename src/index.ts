@@ -3,9 +3,12 @@
 import { Command } from '@commander-js/extra-typings'
 
 import app from './app.js'
+import { currentVersion } from './helpers.js'
 
 export default async function main() {
   const program = new Command()
+
+  program.version(currentVersion, '-v, --version')
 
   program.command('app <name>').action((name: string) => {
     app({ name })

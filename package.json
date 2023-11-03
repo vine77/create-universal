@@ -15,7 +15,7 @@
   ],
   "scripts": {
     "start": "npm run build && node dist/index.js",
-    "build": "tsc && node dist/build.js",
+    "build": "node scripts/clean.js && tsc && node scripts/build.js",
     "prepublishOnly": "npm run build",
     "lint": "eslint . --ignore-path .gitignore",
     "format": "eslint . --fix --ignore-path .gitignore"

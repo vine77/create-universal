@@ -2,6 +2,11 @@ import { execSync } from 'child_process'
 import { readFileSync, writeFileSync } from 'fs'
 import { resolve } from 'path'
 
+// @ts-ignore: Ignore that this is outside rootDir (since it'll exist in build)
+import packageJson from '../package.json' assert { type: 'json' }
+
+export const currentVersion = packageJson.version
+
 export function gitVersion() {
   try {
     const version = execSync('git --version', {
