@@ -7,6 +7,7 @@ import packageJson from '../package.json' assert { type: 'json' }
 
 export const packageVersion = packageJson.version
 export const packageName = packageJson.name
+export const packageDescription = packageJson.description
 
 export function gitVersion() {
   try {
