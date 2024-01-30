@@ -6,7 +6,19 @@ Includes typescript, expo, expo-router and some other expo- packages, react-nati
 
 ## Usage
 
-Simply run `npm create universal app` (to get a prompt) or specify a name to create your app in that directory:
+With npm:
+
+```sh
+npm create universal app
+```
+
+With yarn:
+
+```sh
+yarn create universal app
+```
+
+Or specify a name to create your app in that directory:
 
 ```sh
 npm create universal app your-app-name

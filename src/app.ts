@@ -40,6 +40,7 @@ function execSync(
 }
 
 export default async function app({ name }: { name?: string } = {}) {
+  const isYarn = process.env.npm_config_user_agent?.includes('yarn')
   let appName = name
 
   if (!name) {
@@ -59,7 +60,11 @@ export default async function app({ name }: { name?: string } = {}) {
 
   // Create new project with expo `tabs` template
   try {
-    execSync(`npm create -y expo -- -y --template tabs ${appName}`)
+    execSync(
+      `${
+        isYarn ? 'yarn' : 'npm'
+      } create -y expo -- -y --template tabs ${appName}`,
+    )
     // Change directory to new project for remaining steps
     chdir(`./${appName}`)
   } catch {
@@ -159,7 +164,7 @@ export default async function app({ name }: { name?: string } = {}) {
 
   // Format files
   try {
-    execSync('npm run format')
+    execSync(isYarn ? 'yarn format' : 'npm run format')
   } catch {
     console.error('An error occurred while formatting files.')
     exit(1)
@@ -184,5 +189,5 @@ export default async function app({ name }: { name?: string } = {}) {
   }
 
   console.log(`\n🎉 Project created in ${appName}! Run:`)
-  console.log(`cd ${appName} && npm start`)
+  console.log(`cd ${appName} && ${isYarn ? 'yarn' : 'npm'} start`)
 }
