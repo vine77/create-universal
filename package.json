@@ -1,6 +1,6 @@
 {
   "name": "create-universal",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Cross-platform Expo project generator",
   "homepage": "https://github.com/vine77/create-universal",
   "type": "module",
