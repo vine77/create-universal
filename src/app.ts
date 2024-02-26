@@ -63,7 +63,7 @@ export default async function app({ name }: { name?: string } = {}) {
     execSync(
       isYarn
         ? `yarn create -y expo -y --template tabs ${appName}`
-        : `npm create -y expo -- -y --template tabs ${appName}`,
+        : `npm create -y expo@latest -- -y --template tabs ${appName}`,
     )
     // Change directory to new project for remaining steps
     chdir(`./${appName}`)
