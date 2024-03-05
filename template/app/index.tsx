@@ -1,4 +1,4 @@
-import { Box, Heading, Link, Text } from '@gluestack-ui/themed'
+import { Box, Heading, Link, LinkText, Text } from '@gluestack-ui/themed'
 
 import ReactLogo from '../assets/images/react-logo.svg'
 
@@ -17,35 +17,35 @@ export default function Page() {
       <Box>
         <Text>
           <Link href="https://react.dev/" isExternal>
-            React docs
+            <LinkText>React docs</LinkText>
           </Link>
         </Text>
       </Box>
       <Box>
         <Text>
           <Link href="https://reactnative.dev/" isExternal>
-            React Native docs
+            <LinkText>React Native docs</LinkText>
           </Link>
         </Text>
       </Box>
       <Box>
         <Text>
           <Link href="https://docs.expo.dev/" isExternal>
-            Expo docs
+            <LinkText>Expo docs</LinkText>
           </Link>
         </Text>
       </Box>
       <Box>
         <Text>
           <Link href="https://docs.expo.dev/router/introduction/" isExternal>
-            Expo Router docs
+            <LinkText>Expo Router docs</LinkText>
           </Link>
         </Text>
       </Box>
       <Box>
         <Text>
           <Link href="https://gluestack.io/ui/" isExternal>
-            Gluestack docs
+            <LinkText>Gluestack docs</LinkText>
           </Link>
         </Text>
       </Box>
