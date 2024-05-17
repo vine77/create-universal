@@ -115,10 +115,7 @@ export default async function app({ name }: { name?: string } = {}) {
 
   // Install dev dependencies
   try {
-    execSync(
-      `npm x -y -- expo install ${devDependencies.join(' ')} -- -D'
-      }`,
-    )
+    execSync(`npm x -y -- expo install ${devDependencies.join(' ')} -- -D`)
   } catch {
     console.error('An error occurred while installing dev dependencies.')
     exit(1)
