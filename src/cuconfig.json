@@ -18,6 +18,7 @@
     "@types/react-dom",
     "eslint",
     "eslint-config-universe",
+    "eslint-plugin-perfectionist",
     "prettier",
     "react-native-svg-transformer"
   ]
