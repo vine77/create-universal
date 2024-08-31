@@ -62,8 +62,8 @@ export default async function app({ name }: { name?: string } = {}) {
   try {
     execSync(
       isYarn
-        ? `yarn create -y expo -y --template tabs ${appName}`
-        : `npm create -y expo@latest -- -y --template tabs ${appName}`,
+        ? `yarn create -y expo -y ${appName}`
+        : `npm create -y expo@latest -- ${appName}`,
     )
     // Change directory to new project for remaining steps
     chdir(`./${appName}`)
@@ -76,7 +76,7 @@ export default async function app({ name }: { name?: string } = {}) {
 
   log('Customizing base template...')
 
-  // Remove extra folders from expo `tabs` template and add `src` folder
+  // Remove extra folders from expo template and add `src` folder
   try {
     rmSync('./app/(tabs)', { recursive: true, force: true })
     rmSync('./app/modal.tsx', { recursive: true, force: true })
