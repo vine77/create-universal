@@ -2,7 +2,7 @@ import {
   ExecSyncOptionsWithStringEncoding,
   execSync as nodeExecSync,
 } from 'child_process'
-import { cpSync, mkdirSync, renameSync, rmSync } from 'fs'
+import { cpSync, mkdirSync, rmSync } from 'fs'
 import { dirname, resolve } from 'path'
 import { chdir, exit, stdin, stdout } from 'process'
 import { createInterface } from 'readline/promises'
@@ -13,7 +13,7 @@ import {
   gitVersion,
   packageName,
   packageVersion,
-  removePackageProperty,
+  // removePackageProperty,
   updatePackageScripts,
 } from './helpers.js'
 
@@ -79,7 +79,6 @@ export default async function app({ name }: { name?: string } = {}) {
   // Remove extra folders from expo template and add `src` folder
   try {
     rmSync('./app/(tabs)', { recursive: true, force: true })
-    rmSync('./app/modal.tsx', { recursive: true, force: true })
     rmSync('./components', { recursive: true, force: true })
     rmSync('./constants', { recursive: true, force: true })
     mkdirSync('./src')
@@ -95,7 +94,7 @@ export default async function app({ name }: { name?: string } = {}) {
   // Add `scripts` from cuconfig.json
   try {
     updatePackageScripts(scripts)
-    removePackageProperty('jest')
+    // removePackageProperty('jest')
   } catch {
     console.error('An error occurred while updating package.json.')
     exit(1)
@@ -123,24 +122,28 @@ export default async function app({ name }: { name?: string } = {}) {
 
   success('Dependencies were installed.')
 
-  log('Customizing theme...')
+  log('Installing gluestack...')
 
-  // Eject gluestack to allow customizing theme
   try {
-    execSync('npm x -y -- gluestack-ui-scripts eject-theme')
+    execSync('npx gluestack-ui init')
   } catch {
-    // Swallow non-zero exit code
-  }
-
-  // Move gluestack config folder to src/components
-  try {
-    renameSync('./config', './src/components')
-  } catch {
-    console.error('An error occurred while configuring the theme.')
+    console.error('An error occurred while installing gluestack.')
     exit(1)
   }
 
-  success('Theme was customized.')
+  success('Gluestack was installed.')
+
+  log('Adding gluestack components...')
+
+  // Add all available gluestack components
+  try {
+    execSync('npx gluestack-ui add --all')
+  } catch {
+    console.error('An error occurred while adding gluestack components.')
+    exit(1)
+  }
+
+  success('GlueStack components were added.')
 
   log('Copying template files...')
 

@@ -25,7 +25,7 @@ export function gitVersion() {
 export function updatePackageScripts(scripts: { [key: string]: string }): void {
   const packageJsonPath = resolve(process.cwd(), './package.json')
   const packageJson = JSON.parse(readFileSync(packageJsonPath, 'utf8'))
-  packageJson.scripts = scripts
+  packageJson.scripts = { ...packageJson.scripts, ...scripts }
   writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2))
 }
 
