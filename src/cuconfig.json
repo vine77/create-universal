@@ -7,7 +7,7 @@
   "dependencies": ["react-native-svg"],
   "devDependencies": [
     "@types/react-dom",
-    "eslint",
+    "eslint@8",
     "eslint-config-universe",
     "eslint-plugin-perfectionist",
     "prettier",
