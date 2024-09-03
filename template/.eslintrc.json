@@ -1,7 +1,7 @@
 {
   "root": true,
   "extends": [
-    "plugin:perfectionist/recommended-natural",
+    "plugin:perfectionist/recommended-natural-legacy",
     "universe/node",
     "universe/web",
     "universe/native"
@@ -21,8 +21,8 @@
           "object",
           "unknown"
         ],
-        "newlines-between": "always",
-        "internal-pattern": ["@/**", "@env"]
+        "newlinesBetween": "always",
+        "internalPattern": ["@/**", "@env"]
       }
     ],
     // perfectionist already does this, so disable the ones from universe
