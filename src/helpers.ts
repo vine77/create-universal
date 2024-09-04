@@ -32,6 +32,12 @@ export function updatePackageScripts(scripts: { [key: string]: string }): void {
 export function removePackageProperty(property: string): void {
   const packageJsonPath = resolve(process.cwd(), './package.json')
   const packageJson = JSON.parse(readFileSync(packageJsonPath, 'utf8'))
-  delete packageJson[property]
+  const keys = property.split('.')
+  let current = packageJson
+  for (let i = 0; i < keys.length - 1; i++) {
+    if (current[keys[i]] === undefined) return
+    current = current[keys[i]]
+  }
+  delete current[keys[keys.length - 1]]
   writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2))
 }

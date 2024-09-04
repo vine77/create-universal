@@ -13,7 +13,7 @@ import {
   gitVersion,
   packageName,
   packageVersion,
-  // removePackageProperty,
+  removePackageProperty,
   updatePackageScripts,
 } from './helpers.js'
 
@@ -67,6 +67,11 @@ export default async function app({ name }: { name?: string } = {}) {
     )
     // Change directory to new project for remaining steps
     chdir(`./${appName}`)
+    // Run Expo's reset-project script then clean up
+    execSync(isYarn ? 'yarn reset-project' : 'npm run reset-project')
+    removePackageProperty('scripts.reset-project')
+    rmSync('./scripts', { recursive: true, force: true })
+    rmSync('./app-example', { recursive: true, force: true })
   } catch {
     error('The project could not be created.')
     exit(1)
@@ -78,10 +83,9 @@ export default async function app({ name }: { name?: string } = {}) {
 
   // Remove extra folders from expo template and add `src` folder
   try {
-    rmSync('./app/(tabs)', { recursive: true, force: true })
+    rmSync('./hooks', { recursive: true, force: true })
     rmSync('./components', { recursive: true, force: true })
     rmSync('./constants', { recursive: true, force: true })
-    mkdirSync('./src')
   } catch {
     console.error('An error occurred while configuring the project.')
     exit(1)
@@ -91,10 +95,9 @@ export default async function app({ name }: { name?: string } = {}) {
 
   log('Updating package.json...')
 
-  // Add `scripts` from cuconfig.json
+  // Add config from cuconfig.json to package.json
   try {
     updatePackageScripts(scripts)
-    // removePackageProperty('jest')
   } catch {
     console.error('An error occurred while updating package.json.')
     exit(1)
@@ -125,7 +128,7 @@ export default async function app({ name }: { name?: string } = {}) {
   log('Installing gluestack...')
 
   try {
-    execSync('npx gluestack-ui init')
+    execSync('npx gluestack-ui@latest init')
   } catch {
     console.error('An error occurred while installing gluestack.')
     exit(1)
@@ -137,7 +140,7 @@ export default async function app({ name }: { name?: string } = {}) {
 
   // Add all available gluestack components
   try {
-    execSync('npx gluestack-ui add --all')
+    execSync('npx gluestack-ui@latest add --all')
   } catch {
     console.error('An error occurred while adding gluestack components.')
     exit(1)
