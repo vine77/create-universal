@@ -2,7 +2,7 @@
 
 Cross-platform Expo project generator to bootstrap an app that runs on iOS, Android, and web.
 
-Includes typescript, expo, expo-router and some other expo- packages, react-native-web, react-native-svg, react-native-svg-transformer, eslint, prettier, etc.
+Includes typescript, expo, expo-router and some other expo- packages, react-native-web, react-native-svg, react-native-svg-transformer, eslint, prettier, etc. as well as gluestack-ui and NativeWind/Tailwind.
 
 ## Usage
 
@@ -34,7 +34,8 @@ This essentially does the following:
 - Replace the default/tabs example with a bare-bones template
 - Add some extra dependencies like react-native-svg
 - Add eslint/prettier with eslint-config-universe and eslint-plugin-perfectionist
-- Format code based on the config
+- Add gluestack-ui, which includes nativewind, and all components
+- Format code based on the linting config
 
 Then you can simply run the following to see the web version of your new app:
 
