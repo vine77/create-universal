@@ -2,7 +2,7 @@ import {
   ExecSyncOptionsWithStringEncoding,
   execSync as nodeExecSync,
 } from 'child_process'
-import { cpSync, mkdirSync, rmSync } from 'fs'
+import { cpSync, rmSync } from 'fs'
 import { dirname, resolve } from 'path'
 import { chdir, exit, stdin, stdout } from 'process'
 import { createInterface } from 'readline/promises'

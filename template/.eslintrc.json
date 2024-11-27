@@ -1,10 +1,17 @@
 {
   "root": true,
   "extends": [
-    "plugin:perfectionist/recommended-natural-legacy",
+    "plugin:perfectionist/recommended-natural",
     "universe/node",
     "universe/web",
-    "universe/native"
+    "universe/native",
+    "universe/shared/typescript-analysis"
+  ],
+  "overrides": [
+    {
+      "files": ["*.js", "*.jsx", "*.mjs", "*.ts", "*.tsx"],
+      "parserOptions": { "project": "./tsconfig.json" }
+    }
   ],
   "rules": {
     // Customize `sort-imports` with newlines and internal pattern
@@ -21,14 +28,16 @@
           "object",
           "unknown"
         ],
-        "newlinesBetween": "always",
-        "internalPattern": ["@/**", "@env"]
+        "internal-pattern": ["@/**", "@env"],
+        "newlines-between": "always"
       }
     ],
-    // perfectionist already does this, so disable the ones from universe
-    "sort-imports": "off",
+    // Perfectionist already does this, so disable the ones from universe
     "import/order": "off",
+    "sort-imports": "off",
     // Disable other rules that are too strict
-    "perfectionist/sort-intersection-types": "off"
+    "perfectionist/sort-intersection-types": "off",
+    // Add exhaustive-deps since it's disabled by default in universe
+    "react-hooks/exhaustive-deps": "warn"
   }
 }
