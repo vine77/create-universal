@@ -3,7 +3,7 @@ import { readFileSync, writeFileSync } from 'fs'
 import { resolve } from 'path'
 
 // @ts-ignore: Ignore that this is outside rootDir (since it'll exist in build)
-import packageJson from '../package.json' assert { type: 'json' }
+import packageJson from '../package.json' with { type: 'json' }
 
 export const packageVersion = packageJson.version
 export const packageName = packageJson.name

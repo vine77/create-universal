@@ -8,7 +8,7 @@ import { chdir, exit, stdin, stdout } from 'process'
 import { createInterface } from 'readline/promises'
 import { fileURLToPath } from 'url'
 
-import cuconfig from './cuconfig.json' assert { type: 'json' }
+import cuconfig from './cuconfig.json' with { type: 'json' }
 import {
   gitVersion,
   packageName,
