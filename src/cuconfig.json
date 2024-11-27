@@ -9,7 +9,7 @@
     "@types/react-dom",
     "eslint@8",
     "eslint-config-universe",
-    "eslint-plugin-perfectionist",
+    "eslint-plugin-perfectionist@2",
     "prettier",
     "react-native-svg-transformer"
   ]
