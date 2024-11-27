@@ -4,7 +4,7 @@ const { withNativeWind } = require('nativewind/metro')
 module.exports = (() => {
   const config = getDefaultConfig(__dirname)
 
-  const { transformer, resolver } = config
+  const { resolver, transformer } = config
 
   config.transformer = {
     ...transformer,

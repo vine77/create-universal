@@ -1,7 +1,7 @@
 import { rmSync } from 'fs'
 
 function removeDistDirectory() {
-  rmSync('dist', { recursive: true, force: true })
+  rmSync('dist', { force: true, recursive: true })
 }
 
 removeDistDirectory()

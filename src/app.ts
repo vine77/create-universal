@@ -70,8 +70,8 @@ export default async function app({ name }: { name?: string } = {}) {
     // Run Expo's reset-project script then clean up
     execSync(isYarn ? 'yarn reset-project' : 'npm run reset-project')
     removePackageProperty('scripts.reset-project')
-    rmSync('./scripts', { recursive: true, force: true })
-    rmSync('./app-example', { recursive: true, force: true })
+    rmSync('./scripts', { force: true, recursive: true })
+    rmSync('./app-example', { force: true, recursive: true })
   } catch {
     error('The project could not be created.')
     exit(1)
@@ -83,9 +83,9 @@ export default async function app({ name }: { name?: string } = {}) {
 
   // Remove extra folders from expo template and add `src` folder
   try {
-    rmSync('./hooks', { recursive: true, force: true })
-    rmSync('./components', { recursive: true, force: true })
-    rmSync('./constants', { recursive: true, force: true })
+    rmSync('./hooks', { force: true, recursive: true })
+    rmSync('./components', { force: true, recursive: true })
+    rmSync('./constants', { force: true, recursive: true })
   } catch {
     console.error('An error occurred while configuring the project.')
     exit(1)
@@ -156,7 +156,7 @@ export default async function app({ name }: { name?: string } = {}) {
       dirname(fileURLToPath(import.meta.url)),
       'template',
     )
-    cpSync(templatePath, process.cwd(), { recursive: true, force: true })
+    cpSync(templatePath, process.cwd(), { force: true, recursive: true })
   } catch {
     console.error('An error occurred while copying template files.')
     exit(1)
