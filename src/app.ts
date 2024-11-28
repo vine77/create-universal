@@ -201,7 +201,8 @@ export default async function app({ name }: { name?: string } = {}) {
 
   // Apply patch
   try {
-    execSync('git apply patches/fix-gluestack-import.patch')
+    const patchFilePath = resolve(dirname(fileURLToPath(import.meta.url)), 'patches', 'fix-gluestack-import.patch')
+    execSync(`git apply "${patchFilePath}"`)
   } catch {
     console.error('An error occurred while applying gluestack import patch.')
   }
