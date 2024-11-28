@@ -1,7 +1,5 @@
 import { cpSync } from 'fs'
+import { resolve } from 'path'
 
-function copyTemplateDirectory() {
-  cpSync('template', 'dist/template', { recursive: true })
-}
-
-copyTemplateDirectory()
+cpSync('template', resolve('dist', 'template'), { recursive: true })
+cpSync('patches', resolve('dist', 'patches'), { recursive: true })
