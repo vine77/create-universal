@@ -1,0 +1,10 @@
+diff --git a/tailwind.config.js b/tailwind.config.js
+index a642aae..f3fa265 100644
+--- a/tailwind.config.js
++++ b/tailwind.config.js
+@@ -1,4 +1,4 @@
+-const gluestackPlugin = require('@gluestack-ui/nativewind-utils/tailwind-plugin')
++import gluestackPlugin from '@gluestack-ui/nativewind-utils/tailwind-plugin'
+
+ /** @type {import('tailwindcss').Config} */
+ module.exports = {
