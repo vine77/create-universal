@@ -11,19 +11,12 @@ export default async function main() {
     .version(packageVersion, '-v, --version')
     .description(packageDescription)
 
-  program.command('app [name]').action((name?: string) => {
-    app({ name })
-  })
-
-  // program
-  //   .command('component <name>')
-  //   .allowUnknownOption()
-  //   .action((name: string) => {
-  //     const argsIndex = process.argv.indexOf('component') + 2
-  //     const otherArgs = process.argv.slice(argsIndex)
-  //     const argsString = otherArgs.join(' ')
-  //     console.log(`Creating component: ${name} with args: ${argsString}`)
-  //   })
+  program
+    .command('app [name]')
+    .option('--gluestack', 'Include gluestack-ui and components')
+    .action((name, options) => {
+      app({ name, options })
+    })
 
   await program.parseAsync(process.argv)
 }
