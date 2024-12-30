@@ -11,12 +11,9 @@ export default async function main() {
     .version(packageVersion, '-v, --version')
     .description(packageDescription)
 
-  program
-    .command('app [name]')
-    .option('--gluestack', 'Include gluestack-ui and components')
-    .action((name, options) => {
-      app({ name, options })
-    })
+  program.command('app [name]').action((name) => {
+    app({ name })
+  })
 
   await program.parseAsync(process.argv)
 }
