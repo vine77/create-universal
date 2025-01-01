@@ -9,8 +9,8 @@ export default async function main() {
     .version(packageVersion, '-v, --version')
     .description(packageDescription)
 
-  program.command('app [name]').action((name) => {
-    app({ name })
+  program.command('app [name]').action(async (name) => {
+    await app({ name })
   })
 
   await program.parseAsync(process.argv)

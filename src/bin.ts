@@ -7,4 +7,4 @@ import 'suppress-experimental-warnings'
 
 const main = (await import('./index.js')).default
 
-main()
+await main()
