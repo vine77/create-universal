@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "commander": "^13.0.0",
-    "suppress-experimental-warnings": "^1.1.17"
+    "suppress-experimental-warnings": "^2.0.0"
   },
   "devDependencies": {
     "@commander-js/extra-typings": "^13.0.0",
@@ -30,7 +30,7 @@
     "eslint": "^8.52.0",
     "eslint-config-universe": "^13.0.0",
     "eslint-plugin-perfectionist": "^2.11.0",
-    "prettier": "^3.0.3",
+    "prettier": "^3.4.2",
     "typescript": "^5.7.2"
   }
 }
