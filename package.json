@@ -1,6 +1,6 @@
 {
   "name": "create-universal",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "description": "Cross-platform Expo app generator (iOS/Android/web) with TypeScript, formatting, and gluestack/tailwind",
   "homepage": "https://github.com/vine77/create-universal",
   "type": "module",
