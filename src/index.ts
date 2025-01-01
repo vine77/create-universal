@@ -1,4 +1,4 @@
-import { program } from '@commander-js/extra-typings'
+import { program } from 'commander'
 
 import app from './app.js'
 import { packageDescription, packageVersion } from './helpers.js'
