@@ -22,7 +22,6 @@
   },
   "dependencies": {
     "commander": "^13.0.0",
-    "hygen": "^6.2.11",
     "suppress-experimental-warnings": "^1.1.17"
   },
   "devDependencies": {
