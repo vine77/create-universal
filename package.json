@@ -17,8 +17,8 @@
     "start": "npm run build && node dist/bin.js",
     "build": "node scripts/clean.js && tsc && node scripts/build.js",
     "prepublishOnly": "npm run build",
-    "lint": "eslint . --ignore-path .gitignore",
-    "format": "eslint . --fix --ignore-path .gitignore"
+    "lint": "eslint .",
+    "format": "eslint . --fix"
   },
   "dependencies": {
     "commander": "^13.0.0",
